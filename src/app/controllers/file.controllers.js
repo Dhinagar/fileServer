@@ -19,6 +19,9 @@ exports.getFileId = async (req, res, next) => {
         // res.setHeader('Content-dispostion','attachment; filename='+file.fileName)
         //fs.createReadStream(filepath).pipe(res);
 
+        //to download file
+        //res.download(filepath); 
+
     } catch (e) {
         return res.status(400).json({
             status: 400,
