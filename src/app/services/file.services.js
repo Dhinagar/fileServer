@@ -20,8 +20,15 @@ exports.getfile = async (fileId) => {
         const file = await FILE_MODEL.findOne({
             "fileId": fileId
         });
-        if(!file) throw Error('we do not have file with name :'+fileId);
-        
+
+        if(!file){
+            throw  Error('we do not have file with name :'+fileId);
+        } 
+        const userid=req.params.fileId||''
+        //if the file avaiable for particular user then we will send it otherwise will not send
+        if(!file.availbleUsers.includes(userid)){
+            throw  Error('we do not have file with name :'+fileId);
+        }
         return file;
     } catch (e) {
         throw Error('Error while fetching file : ' + e);

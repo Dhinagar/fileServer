@@ -6,7 +6,7 @@ const fileSchema = new mongoose.Schema({
         unique: true
     },
     fileName: String,
-    availbleUsers:Array,
+    availbleUsers:Array, //this array is importtant to check this file is availble for user a or b, so we need to add user for this file.
     filePath:String
     
 })
